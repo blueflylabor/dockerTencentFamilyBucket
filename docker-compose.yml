@@ -1,0 +1,19 @@
+services:
+  wechat:
+    image: ricwang/docker-wechat:latest
+    container_name: wechat_container
+    volumes:
+      - <THE PATH>/.xwechat:/root/.xwechat
+      - <THE PATH>/xwechat_files:/root/xwechat_files
+      - <THE PATH>/downloads:/root/downloads
+      - /dev/snd:/dev/snd
+    ports:
+      - "5800:5800"
+      - "5900:5900"
+    environment:
+      - LANG=zh_CN.UTF-8
+      - USER_ID=0
+      - GROUP_ID=0
+      - WEB_AUDIO=1
+      - TZ=Asia/Shanghai
+    privileged: true
